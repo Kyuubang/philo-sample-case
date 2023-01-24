@@ -1,10 +1,13 @@
 slug: linux-001-1
 spec: single_node
 repo: github.com/Kyuubang/Terraform
+
 start:
   - echo "this running from start"
+
 vars:
   EXAMPLE_VAR: echo bro
+
 grade:
   - name: check username
     on: node1
@@ -15,6 +18,11 @@ grade:
     on: node1
     script: curl node1
     expect: "<h4>Hello, I'm philo will be assist you forever</h4>"
+
+  - name: check /tmp/greetings
+    on: node1
+    script: cat /tmp/greetings
+    expect: hello-$EXAMPLE_VAR!
 
 finish:
   - echo "hello bro finished"
