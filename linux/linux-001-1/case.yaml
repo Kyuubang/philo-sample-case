@@ -12,7 +12,7 @@ grade:
   - name: check username
     on: node1
     script: whoami
-    expect: student
+    expect: vagrant
 
   - name: check respond webserver
     on: node1
