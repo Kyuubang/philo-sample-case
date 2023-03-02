@@ -1,0 +1,20 @@
+slug: linux-001-1
+spec: dual-node
+repo: github.com/Kyuubang/vagrant-sample
+
+start:
+  - echo "this running from start"
+
+grade:
+  - name: check docker installed on node1
+    on: node1
+    script: echo "$(which docker >/dev/null && echo 'installed' || echo 'not installed')"
+    expect: installed
+
+  - name: check docker installed on node2
+    on: node2
+    script: echo "$(which docker >/dev/null && echo 'installed' || echo 'not installed')"
+    expect: installed
+
+finish:
+  - echo "hello bro finished"

@@ -1,5 +1,5 @@
 slug: linux-001-1
-spec: single_node
+spec: single-node
 repo: github.com/Kyuubang/Terraform
 
 start:

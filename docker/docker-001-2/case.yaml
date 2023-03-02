@@ -1,0 +1,30 @@
+slug: linux-001-1
+spec: dual-node
+repo: github.com/Kyuubang/vagrant-sample
+
+start:
+  - echo "this running from start"
+
+grade:
+  - name: check docker hello-world image exist in node1
+    on: node1
+    script: docker images | grep -Eo hello-world
+    expect: hello-world
+
+  - name: check docker hello-world image exist in node2
+    on: node2
+    script: docker images | grep -Eo hello-world
+    expect: hello-world
+
+  - name: check images ubuntu exist in node1
+    on: node1
+    script: docker image inspect ubuntu:20.04 >/dev/null 2>&1 && echo "yes" || echo "no"
+    expect: yes
+
+  - name: check images alpine exist in node2
+    on: node2
+    script: docker image inspect alpine:3.17 >/dev/null 2>&1 && echo "yes" || echo "no"
+    expect: yes
+
+finish:
+  - echo "hello bro finished"

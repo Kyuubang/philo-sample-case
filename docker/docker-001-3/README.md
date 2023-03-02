@@ -21,5 +21,6 @@ docker-compose --version
 ```
 
 ## Task
-- make sure docker-compose is installed on all node
+- make sure docker-compose is installed on node1
+- dont install docker-compose on node2 
 
